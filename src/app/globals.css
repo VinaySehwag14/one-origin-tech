@@ -2,25 +2,51 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1E2528;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter);
+  
+  /* Brand Colors - One Origin Design System */
+  --color-brand-charcoal: #1E2528;
+  --color-brand-teal: #2FA4A0;
+  --color-brand-heading: #141A1C;
+  --color-brand-cta: #238F8B;
+  --color-brand-cta-hover: #1E7A76;
+  --color-brand-border: #E5E7EB;
+  --color-brand-muted: #6B7280;
+  --color-brand-soft: #F9FAFB;
+  --color-brand-white: #FFFFFF;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+/* Origin Pulse Animation - Logo heartbeat effect */
+@keyframes originPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.origin-pulse {
+  animation: originPulse 4s ease-in-out infinite;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism utility for header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-brand-border);
 }
