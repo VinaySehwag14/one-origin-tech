@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Globe, Brain, Building2, Check, X } from "lucide-react";
+import TextReveal from "@/components/TextReveal";
 
 // Animation variants
 const fadeInUp = {
@@ -468,6 +469,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TextReveal />
       <ManifestoSection />
       <ServicesSection />
       <ComparisonSection />
