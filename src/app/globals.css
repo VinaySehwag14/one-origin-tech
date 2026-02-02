@@ -1,25 +1,75 @@
 @import "tailwindcss";
 
+/* ================================
+   ONE ORIGIN TECH - DESIGN SYSTEM
+   Light Theme with Teal Accent
+   ================================ */
+
+/* ================================
+   LIGHT THEME
+   ================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #1E2528;
+  /* Background Colors */
+  --bg-main: #FFFFFF;
+  --bg-card: #F8FAFB;
+  --bg-elevated: #FFFFFF;
+  --bg-border: #E2E8F0;
+
+  /* Brand Teal Palette */
+  --brand: #2FA4A0;
+  --brand-dark: #238F8B;
+  --brand-light: #4BBFBB;
+  --brand-glow: #2FA4A0;
+
+  /* Navy mapping (for card elements) */
+  --navy-950: #F8FAFB;
+  --navy-900: #FFFFFF;
+  --navy-800: #F1F5F9;
+  --navy-700: #E2E8F0;
+
+  /* Gold mapping (for compatibility) */
+  --gold-500: #2FA4A0;
+  --gold-600: #238F8B;
+  --gold-400: #4BBFBB;
+
+  /* Text Colors */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  /* Background */
+  --background: var(--bg-main);
+  --foreground: var(--text-primary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  
-  /* Brand Colors - One Origin Design System */
-  --color-brand-charcoal: #1E2528;
-  --color-brand-teal: #2FA4A0;
-  --color-brand-heading: #141A1C;
-  --color-brand-cta: #238F8B;
-  --color-brand-cta-hover: #1E7A76;
-  --color-brand-border: #E5E7EB;
-  --color-brand-muted: #6B7280;
-  --color-brand-soft: #F9FAFB;
-  --color-brand-white: #FFFFFF;
+
+  /* Background Colors */
+  --color-bg-main: var(--bg-main);
+  --color-bg-card: var(--bg-card);
+
+  /* Navy Colors (mapped) */
+  --color-navy-950: var(--navy-950);
+  --color-navy-900: var(--navy-900);
+  --color-navy-800: var(--navy-800);
+  --color-navy-700: var(--navy-700);
+
+  /* Gold Colors (mapped to teal) */
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-400: var(--gold-400);
+
+  /* Brand Colors */
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light: var(--brand-light);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
 }
 
 body {
@@ -28,25 +78,215 @@ body {
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-/* Origin Pulse Animation - Logo heartbeat effect */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+
+/* Brand Pulse - Hero Origin Point */
 @keyframes originPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(47, 164, 160, 0.3);
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(47, 164, 160, 0.6);
+  }
 }
 
 .origin-pulse {
   animation: originPulse 4s ease-in-out infinite;
 }
 
-/* Smooth scrolling for the entire page */
-html {
-  scroll-behavior: smooth;
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Glassmorphism utility for header */
-.glass-header {
-  background: rgba(255, 255, 255, 0.85);
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+/* Staggered fade animations */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+
+/* ================================
+   UTILITY CLASSES
+   ================================ */
+
+/* Glassmorphism */
+.glass-dark {
+  background: rgba(248, 250, 251, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-brand-border);
+  border: 1px solid rgba(47, 164, 160, 0.1);
+}
+
+/* Glassmorphism - Header */
+.glass-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(47, 164, 160, 0.1);
+}
+
+/* Teal Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #2FA4A0 0%, #4BBFBB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Brand Gradient Text */
+.text-brand-gradient {
+  background: linear-gradient(135deg, #2FA4A0 0%, #4BBFBB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Teal Border Glow */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(47, 164, 160, 0.3);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(47, 164, 160, 0.5);
+}
+
+/* Brand Glow */
+.brand-glow {
+  box-shadow: 0 0 20px rgba(47, 164, 160, 0.3);
+}
+
+.brand-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(47, 164, 160, 0.5);
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.card-hover:hover {
+  border-color: var(--brand);
+  transform: translateY(-4px);
+}
+
+/* Section Container */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding: 0 4rem;
+  }
+}
+
+/* Typography */
+.heading-display {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-section {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Button Base Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: white;
+  padding: 0.875rem 1.75rem;
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(47, 164, 160, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--bg-border);
+  padding: 0.875rem 1.75rem;
+}
+
+.btn-outline:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* Focus States */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(47, 164, 160, 0.3);
+  color: var(--text-primary);
 }
