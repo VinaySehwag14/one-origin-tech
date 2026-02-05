@@ -42,9 +42,9 @@ export default function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 border-b border-gray-200/50"
-                    : "bg-white/80 backdrop-blur-sm"
+                className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+                    ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-zinc-200"
+                    : "bg-white/80 backdrop-blur-md border-b border-zinc-200"
                     }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,10 +82,10 @@ export default function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="relative text-gray-600 hover:text-gray-900 transition-colors duration-200 font-medium text-sm tracking-wide group"
+                                    className="relative text-zinc-600 hover:text-teal-600 transition-colors duration-200 font-medium text-sm tracking-wide group"
                                 >
                                     {link.label}
-                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full" />
+                                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-300 group-hover:w-full" />
                                 </Link>
                             ))}
                         </nav>
@@ -97,11 +97,11 @@ export default function Header() {
                                 href="https://cal.com/vinay-sehwag-gjrsq4/technical-discovery-call"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hidden md:inline-flex items-center gap-3 pl-6 pr-2 py-2 bg-gray-900 text-white font-medium text-sm rounded-full transition-all duration-500 ease-out group hover:bg-gold-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-gold-500/40"
+                                className="hidden md:inline-flex items-center gap-3 pl-6 pr-2 py-2 bg-teal-600 text-white font-medium text-sm rounded-full shadow-md transition-all duration-500 ease-out group hover:bg-teal-700 hover:scale-[1.02] hover:shadow-xl"
                             >
                                 <span className="transition-transform duration-300 group-hover:translate-x-0.5">Book Your Clarity Call</span>
-                                <span className="flex items-center justify-center w-8 h-8 bg-gold-500 rounded-lg transition-all duration-500 ease-out group-hover:bg-white group-hover:rotate-[-8deg] group-hover:scale-110">
-                                    <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover:text-gold-500 group-hover:translate-x-0.5" />
+                                <span className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-lg transition-all duration-500 ease-out group-hover:bg-white group-hover:rotate-[-8deg] group-hover:scale-110">
+                                    <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover:text-teal-600 group-hover:translate-x-0.5" />
                                 </span>
                             </a>
 
@@ -171,7 +171,7 @@ export default function Header() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setIsMobileMenuOpen(false)}
-                                                className="block py-3 text-gray-700 hover:text-gold-500 transition-colors font-medium text-base border-b border-gray-100"
+                                                className="block py-3 text-zinc-700 hover:text-teal-600 transition-colors font-medium text-base border-b border-zinc-100"
                                             >
                                                 {link.label}
                                             </Link>
@@ -180,17 +180,17 @@ export default function Header() {
                                 </nav>
 
                                 {/* Mobile CTA */}
-                                <div className="p-4 border-t border-gray-200">
+                                <div className="p-4 border-t border-zinc-200">
                                     <a
                                         href="https://cal.com/vinay-sehwag-gjrsq4/technical-discovery-call"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center gap-3 w-full py-3 bg-gray-900 text-white font-medium rounded-full transition-all duration-500 ease-out group hover:bg-gold-500 hover:shadow-xl hover:shadow-gold-500/40"
+                                        className="flex items-center justify-center gap-3 w-full py-3 bg-teal-600 text-white font-medium rounded-full shadow-md transition-all duration-500 ease-out group hover:bg-teal-700 hover:shadow-xl"
                                     >
                                         <span className="transition-transform duration-300 group-hover:translate-x-0.5">Book Your Clarity Call</span>
-                                        <span className="flex items-center justify-center w-8 h-8 bg-gold-500 rounded-lg transition-all duration-500 ease-out group-hover:bg-white group-hover:rotate-[-8deg] group-hover:scale-110">
-                                            <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover:text-gold-500 group-hover:translate-x-0.5" />
+                                        <span className="flex items-center justify-center w-8 h-8 bg-white/20 rounded-lg transition-all duration-500 ease-out group-hover:bg-white group-hover:rotate-[-8deg] group-hover:scale-110">
+                                            <ArrowRight className="w-4 h-4 text-white transition-all duration-300 group-hover:text-teal-600 group-hover:translate-x-0.5" />
                                         </span>
                                     </a>
                                 </div>
@@ -201,7 +201,7 @@ export default function Header() {
             </AnimatePresence>
 
             {/* Spacer for fixed header */}
-            <div className="h-16 md:h-20" />
+            {/* <div className="h-16 md:h-20" /> */}
         </>
     );
 }
