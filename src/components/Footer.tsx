@@ -19,9 +19,9 @@ const footerLinks = {
 
 export default function Footer() {
     return (
-        <footer className="relative bg-gray-50 border-t border-gray-200">
+        <footer className="relative bg-zinc-50 border-t border-zinc-200">
             {/* Teal gradient fade at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gold-500/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-teal-50/50 pointer-events-none" />
 
             <div className="section-container relative py-16 md:py-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
@@ -41,34 +41,34 @@ export default function Footer() {
                                 />
                             </motion.div>
                             <div className="flex items-center">
-                                <span className="text-xl font-semibold text-gray-900">
+                                <span className="text-xl font-semibold text-zinc-900">
                                     One Origin
                                 </span>
-                                <span className="ml-1 text-xl font-normal text-gray-500">
+                                <span className="ml-1 text-xl font-normal text-zinc-500">
                                     Tech
                                 </span>
                             </div>
                         </Link>
 
-                        <p className="mt-4 text-gray-600 max-w-sm leading-relaxed">
+                        <p className="mt-4 text-zinc-600 max-w-sm leading-relaxed">
                             The global &quot;Idea-to-Production&quot; studio. We bridge the gap
                             between visionary concepts and scalable software.
                         </p>
 
-                        <p className="mt-6 text-gold-500 font-medium">
+                        <p className="mt-6 text-teal-600 font-medium">
                             New Delhi • Global
                         </p>
                     </div>
 
                     {/* Company Links */}
                     <div>
-                        <h4 className="text-gray-900 font-semibold mb-4">Company</h4>
+                        <h4 className="text-zinc-900 font-semibold mb-4">Company</h4>
                         <ul className="space-y-3">
                             {footerLinks.company.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-600 hover:text-gold-500 transition-colors duration-200"
+                                        className="text-zinc-600 hover:text-teal-600 transition-colors duration-200"
                                     >
                                         {link.label}
                                     </Link>
@@ -79,13 +79,13 @@ export default function Footer() {
 
                     {/* Legal Links */}
                     <div>
-                        <h4 className="text-gray-900 font-semibold mb-4">Legal</h4>
+                        <h4 className="text-zinc-900 font-semibold mb-4">Legal</h4>
                         <ul className="space-y-3">
                             {footerLinks.legal.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-gray-600 hover:text-gold-500 transition-colors duration-200"
+                                        className="text-zinc-600 hover:text-teal-600 transition-colors duration-200"
                                     >
                                         {link.label}
                                     </Link>
@@ -96,8 +96,8 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500 text-sm">
+                <div className="mt-12 pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-zinc-500 text-sm">
                         © {new Date().getFullYear()} One Origin Technologies Pvt. Ltd. All
                         rights reserved.
                     </p>
@@ -105,7 +105,7 @@ export default function Footer() {
                     <div className="flex items-center gap-6">
                         <a
                             href="mailto:hello@oneorigintech.com"
-                            className="text-gray-500 hover:text-gold-500 transition-colors duration-200 text-sm"
+                            className="text-zinc-500 hover:text-teal-600 transition-colors duration-200 text-sm"
                         >
                             hello@oneorigintech.com
                         </a>

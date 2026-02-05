@@ -87,6 +87,12 @@ const config: Config = {
                     "0%": { transform: "translateX(0%)" },
                     "100%": { transform: "translateX(-50%)" },
                 },
+                backgroundImage: {
+                    'dot-pattern': "radial-gradient(#e4e4e7 1px, transparent 1px)",
+                },
+                backgroundSize: {
+                    'dot-pattern': '24px 24px',
+                }
             },
         },
     },
