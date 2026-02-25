@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
                             <div className="mt-4 p-6 bg-zinc-50 rounded-xl border border-zinc-200">
                                 <p className="font-semibold text-zinc-900">One Origin Technologies Pvt. Ltd.</p>
                                 <p>New Delhi, India</p>
-                                <p>Email: <a href="mailto:hello@oneorigintech.com" className="text-teal-600 hover:underline">hello@oneorigintech.com</a></p>
+                                <p>Email: <a href="mailto:info@oneorigintech.com" className="text-teal-600 hover:underline">info@oneorigintech.com</a></p>
                             </div>
                         </section>
                     </div>

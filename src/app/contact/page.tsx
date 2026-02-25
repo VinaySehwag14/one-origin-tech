@@ -200,11 +200,11 @@ function AlternativeContactSection() {
                     <div>
                         <p className="text-zinc-600 mb-2">Not ready to book?</p>
                         <a
-                            href="mailto:hello@oneorigintech.com"
+                            href="mailto:info@oneorigintech.com"
                             className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium transition-colors"
                         >
                             <Mail className="w-5 h-5" />
-                            hello@oneorigintech.com
+                            info@oneorigintech.com
                         </a>
                     </div>
 
