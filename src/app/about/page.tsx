@@ -1,54 +1,35 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Quote, Shield, Target, Sparkles } from "lucide-react";
-
-// Animation variants
-const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: "easeOut" as const },
-    },
-};
-
-const staggerContainer = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2,
-        },
-    },
-};
+import { AnimatedSection, AnimatedDiv } from "@/components/ui/AnimatedWrappers";
+import { MapPulseNode } from "./MapPulseNode";
 
 // ============================================
 // SECTION 1: THE MANIFESTO (THE "WHY")
 // ============================================
 function ManifestoSection() {
     return (
-        <motion.section
-            className="py-24 md:py-32 lg:py-40 bg-navy-950"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
+        <AnimatedSection
+            className="py-24 md:py-32 lg:py-40 bg-zinc-50 relative overflow-hidden"
+            animation="stagger"
         >
-            <div className="section-container">
+            {/* Abstract Background Elements */}
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[600px] h-[600px] bg-teal-500/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="section-container relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left: Bold Typography */}
-                    <motion.div variants={fadeInUp}>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-                            The Crisis of{" "}
-                            <span className="text-gold-gradient">Incompletion.</span>
+                    <AnimatedDiv animation="fadeInUp">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-zinc-900 mb-6 leading-[1.1]">
+                            The Crisis of <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">Incompletion.</span>
                         </h1>
-                    </motion.div>
+                    </AnimatedDiv>
 
                     {/* Right: Manifesto Text */}
-                    <motion.div
-                        className="text-lg text-slate-400 leading-relaxed space-y-6"
-                        variants={fadeInUp}
+                    <AnimatedDiv
+                        className="text-lg text-zinc-600 leading-relaxed space-y-6"
+                        animation="fadeInUp"
                     >
                         <p>
                             Technology has never been easier to start. AI tools generate code.
@@ -56,7 +37,7 @@ function ManifestoSection() {
                         </p>
                         <p>
                             But looking at the landscape, we saw a crisis:{" "}
-                            <span className="text-white font-semibold">Incompletion.</span>
+                            <span className="text-zinc-900 font-semibold">Incompletion.</span>
                         </p>
                         <p>
                             Projects that start with excitement but die in development hell.
@@ -64,18 +45,18 @@ function ManifestoSection() {
                             reach a destination.
                         </p>
                         <p>
-                            <span className="text-gold-500 font-semibold">One Origin Tech</span>{" "}
+                            <span className="text-teal-600 font-semibold">One Origin Tech</span>{" "}
                             was built to solve this. We exist to ensure that your digital
                             vision travels from a single, clear origin to a complete,
                             production-grade asset.{" "}
-                            <span className="text-white font-medium">
+                            <span className="text-zinc-900 font-medium">
                                 We don&apos;t just build. We finish.
                             </span>
                         </p>
-                    </motion.div>
+                    </AnimatedDiv>
                 </div>
             </div>
-        </motion.section>
+        </AnimatedSection>
     );
 }
 
@@ -105,44 +86,46 @@ const coreBeliefs = [
 
 function CoreBeliefsSection() {
     return (
-        <motion.section
-            className="py-24 md:py-32 bg-navy-900"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+        <AnimatedSection
+            className="py-24 md:py-32 bg-zinc-50"
+            animation="stagger"
         >
             <div className="section-container">
-                <motion.div className="text-center mb-16" variants={fadeInUp}>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                <AnimatedDiv className="text-center mb-16" animation="fadeInUp">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
                         Our Operating System.
                     </h2>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-zinc-600 text-lg">
                         The core beliefs that guide everything we build.
                     </p>
-                </motion.div>
+                </AnimatedDiv>
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {coreBeliefs.map((belief) => (
-                        <motion.div
+                        <AnimatedDiv
                             key={belief.title}
-                            className="p-8 bg-navy-950 rounded-2xl border border-navy-700 hover:border-gold-500/50 transition-colors"
-                            variants={fadeInUp}
+                            className="group relative p-8 bg-zinc-900 rounded-3xl border border-zinc-800 hover:border-teal-500/50 transition-all duration-300 shadow-sm overflow-hidden"
+                            animation="fadeInUp"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-6">
-                                <belief.icon className="w-6 h-6 text-gold-500" strokeWidth={1.5} />
+                            {/* Hover Glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                            <div className="relative z-10">
+                                <div className="w-14 h-14 rounded-2xl bg-zinc-800 flex items-center justify-center mb-8 group-hover:bg-teal-500/20 transition-colors duration-300">
+                                    <belief.icon className="w-7 h-7 text-teal-400" strokeWidth={1.5} />
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-4">
+                                    {belief.title}
+                                </h3>
+                                <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
+                                    {belief.description}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-semibold text-white mb-4">
-                                {belief.title}
-                            </h3>
-                            <p className="text-slate-400 leading-relaxed">
-                                {belief.description}
-                            </p>
-                        </motion.div>
+                        </AnimatedDiv>
                     ))}
                 </div>
             </div>
-        </motion.section>
+        </AnimatedSection>
     );
 }
 
@@ -157,97 +140,57 @@ const globalStats = [
 
 function GlobalStandardSection() {
     return (
-        <motion.section
-            className="py-24 md:py-32 bg-navy-950 overflow-hidden"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+        <AnimatedSection
+            className="py-24 md:py-32 bg-white overflow-hidden"
+            animation="stagger"
         >
             <div className="section-container">
-                <motion.div className="text-center mb-12" variants={fadeInUp}>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                <AnimatedDiv className="text-center mb-12" animation="fadeInUp">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
                         Global HQ. Silicon Valley Standards.
                     </h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-zinc-600 text-lg max-w-2xl mx-auto">
                         Headquartered in New Delhi, One Origin Tech serves a global
                         clientele. We combine the agility of a startup with the engineering
                         rigor of a Fortune 500 firm.
                     </p>
-                </motion.div>
+                </AnimatedDiv>
 
                 {/* Map Container */}
-                <motion.div
-                    className="relative aspect-[2/1] max-w-4xl mx-auto bg-navy-900 rounded-3xl border border-navy-700 overflow-hidden mb-16"
-                    variants={fadeInUp}
+                <AnimatedDiv
+                    className="relative aspect-[2/1] max-w-4xl mx-auto bg-zinc-50 rounded-3xl border border-zinc-200 overflow-hidden mb-16 shadow-sm"
+                    animation="fadeInUp"
                 >
                     {/* Grid lines for map effect */}
-                    <div className="absolute inset-0 opacity-20">
-                        {[...Array(10)].map((_, i) => (
-                            <div
-                                key={`h-${i}`}
-                                className="absolute w-full h-px bg-gold-500/20"
-                                style={{ top: `${(i + 1) * 10}%` }}
-                            />
-                        ))}
-                        {[...Array(10)].map((_, i) => (
-                            <div
-                                key={`v-${i}`}
-                                className="absolute h-full w-px bg-gold-500/20"
-                                style={{ left: `${(i + 1) * 10}%` }}
-                            />
-                        ))}
-                    </div>
+                    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(to right, #14b8a6 1px, transparent 1px), linear-gradient(to bottom, #14b8a6 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
                     {/* HQ Location - New Delhi with Teal Pulse */}
-                    <motion.div
-                        className="absolute"
-                        style={{ left: "72%", top: "42%" }}
-                        initial={{ scale: 0, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5, duration: 0.4 }}
-                    >
-                        {/* Pulse ring */}
-                        <div className="absolute -inset-4 rounded-full bg-gold-500/20 animate-ping" />
-                        <div className="absolute -inset-6 rounded-full bg-gold-500/10 animate-pulse" />
-
-                        {/* Core dot */}
-                        <div className="relative">
-                            <div className="w-5 h-5 rounded-full bg-gold-500 shadow-lg shadow-gold-500/50" />
-
-                            {/* Label */}
-                            <div className="absolute left-8 top-1/2 -translate-y-1/2 whitespace-nowrap">
-                                <p className="text-white font-semibold text-sm">New Delhi</p>
-                                <p className="text-gold-500 text-xs font-medium">Global HQ</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </motion.div>
+                    <MapPulseNode />
+                </AnimatedDiv>
 
                 {/* Stats Row */}
-                <motion.div
+                <AnimatedDiv
                     className="grid grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto"
-                    variants={fadeInUp}
+                    animation="fadeInUp"
                 >
                     {globalStats.map((stat) => (
                         <div key={stat.label} className="text-center">
-                            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-gold-500 mb-2">
+                            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-teal-600 mb-2">
                                 {stat.value}
                             </div>
-                            <p className="text-white font-medium text-sm md:text-base">
+                            <p className="text-zinc-900 font-medium text-sm md:text-base">
                                 {stat.label}
                             </p>
                             {stat.sublabel && (
-                                <p className="text-slate-500 text-xs md:text-sm">
+                                <p className="text-zinc-500 text-xs md:text-sm">
                                     {stat.sublabel}
                                 </p>
                             )}
                         </div>
                     ))}
-                </motion.div>
+                </AnimatedDiv>
             </div>
-        </motion.section>
+        </AnimatedSection>
     );
 }
 
@@ -256,46 +199,46 @@ function GlobalStandardSection() {
 // ============================================
 function LeadershipSection() {
     return (
-        <motion.section
-            className="py-24 md:py-32 bg-navy-900"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+        <AnimatedSection
+            className="py-24 md:py-32 bg-zinc-50"
+            animation="stagger"
         >
             <div className="section-container max-w-4xl mx-auto">
-                <motion.div
-                    className="relative p-8 md:p-12 bg-navy-950 rounded-3xl border border-navy-700"
-                    variants={fadeInUp}
+                <AnimatedDiv
+                    className="relative p-10 md:p-16 bg-white rounded-[2.5rem] shadow-xl border border-zinc-100 overflow-hidden group hover:shadow-2xl transition-shadow duration-500"
+                    animation="fadeInUp"
                 >
+                    {/* Decorative gradient corner */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-teal-500/20 transition-colors duration-500" />
+
                     {/* Quote icon */}
-                    <div className="absolute -top-4 left-8 w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center">
-                        <Quote className="w-5 h-5 text-navy-950" />
+                    <div className="absolute -top-6 left-12 w-14 h-14 rounded-2xl bg-teal-600 flex items-center justify-center shadow-lg shadow-teal-600/20">
+                        <Quote className="w-6 h-6 text-white" />
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         {/* Photo placeholder */}
-                        <div className="w-24 h-24 rounded-full bg-navy-800 border-2 border-gold-500/30 flex items-center justify-center flex-shrink-0">
-                            <span className="text-2xl font-bold text-gold-500/50">F</span>
+                        <div className="w-24 h-24 rounded-full bg-zinc-50 border-2 border-teal-500/30 flex items-center justify-center flex-shrink-0">
+                            <span className="text-2xl font-bold text-teal-600/50">F</span>
                         </div>
 
                         <div>
-                            <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-6">
+                            <blockquote className="text-xl md:text-2xl text-zinc-900 leading-relaxed mb-6 font-medium">
                                 &ldquo;We built this company for the leaders who are tired of
                                 &lsquo;almost&rsquo; launching. We are here to get you across
                                 the finish line.&rdquo;
                             </blockquote>
 
                             <div>
-                                <p className="text-gold-500 font-semibold">
+                                <p className="text-teal-600 font-semibold">
                                     — Founder, One Origin Tech
                                 </p>
                             </div>
                         </div>
                     </div>
-                </motion.div>
+                </AnimatedDiv>
             </div>
-        </motion.section>
+        </AnimatedSection>
     );
 }
 
@@ -304,40 +247,38 @@ function LeadershipSection() {
 // ============================================
 function CTASection() {
     return (
-        <motion.section
-            className="py-24 md:py-32 bg-navy-950"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
+        <AnimatedSection
+            className="py-24 md:py-32 bg-white"
+            animation="stagger"
         >
             <div className="section-container text-center">
-                <motion.h2
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
-                    variants={fadeInUp}
+                <AnimatedDiv
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 mb-6"
+                    animation="fadeInUp"
                 >
-                    Ready to finish what you started?
-                </motion.h2>
+                    <h2>Ready to finish what you started?</h2>
+                </AnimatedDiv>
 
-                <motion.p
-                    className="text-slate-400 text-lg max-w-xl mx-auto mb-10"
-                    variants={fadeInUp}
+                <AnimatedDiv
+                    className="text-zinc-600 text-lg max-w-xl mx-auto mb-10"
+                    animation="fadeInUp"
                 >
-                    Book a technical roadmap call and let&apos;s get you across the finish
-                    line.
-                </motion.p>
+                    <p>Book a technical roadmap call and let&apos;s get you across the finish
+                        line.</p>
+                </AnimatedDiv>
 
-                <motion.div variants={fadeInUp}>
+                <AnimatedDiv animation="fadeInUp">
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-navy-950 font-bold text-lg rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30 hover:-translate-y-0.5"
+                        className="group relative inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white font-bold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(20,184,166,0.3)]"
                     >
-                        Book Technical Roadmap Call
-                        <ArrowRight className="w-5 h-5" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <span className="relative z-10">Book Technical Roadmap Call</span>
+                        <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
-                </motion.div>
+                </AnimatedDiv>
             </div>
-        </motion.section>
+        </AnimatedSection>
     );
 }
 

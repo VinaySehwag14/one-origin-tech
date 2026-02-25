@@ -39,12 +39,12 @@ const staggerContainer = {
 // ============================================
 function HeroSection() {
     return (
-        <section className="relative py-24 md:py-32 lg:py-40 bg-navy-950 overflow-hidden">
+        <section className="relative py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
             {/* 3D Wireframe Background */}
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96">
                     <motion.div
-                        className="w-full h-full border border-gold-500/30 rounded-lg"
+                        className="w-full h-full border border-teal-500/30 rounded-lg"
                         animate={{ rotateY: 360, rotateX: 360 }}
                         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                         style={{ transformStyle: "preserve-3d" }}
@@ -60,15 +60,15 @@ function HeroSection() {
             >
                 <div className="max-w-4xl">
                     <motion.h1
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 mb-6"
                         variants={fadeInUp}
                     >
                         Engineering Excellence.{" "}
-                        <span className="text-gold-gradient">No Compromises.</span>
+                        <span className="text-teal-600">No Compromises.</span>
                     </motion.h1>
 
                     <motion.p
-                        className="text-lg sm:text-xl md:text-2xl text-slate-400 max-w-2xl leading-relaxed"
+                        className="text-lg sm:text-xl md:text-2xl text-zinc-600 max-w-2xl leading-relaxed"
                         variants={fadeInUp}
                     >
                         We don&apos;t just write code. We architect scalable, production-grade
@@ -91,7 +91,7 @@ const serviceStack = [
         description:
             "SEO-optimized, server-rendered applications built on Next.js 15. We build dashboards, SaaS platforms, and e-commerce engines that load in <100ms.",
         tags: ["Next.js", "React 19", "Vercel", "Tailwind"],
-        color: "from-blue-500/20 to-cyan-500/20",
+        color: "from-teal-500/10 to-cyan-500/10",
     },
     {
         id: "mobile",
@@ -100,7 +100,7 @@ const serviceStack = [
         description:
             "One codebase, two native apps. We use React Native to deploy fluid, gesture-driven apps to iOS and Android simultaneously.",
         tags: ["React Native", "Expo", "TypeScript"],
-        color: "from-purple-500/20 to-pink-500/20",
+        color: "from-blue-500/10 to-purple-500/10",
     },
     {
         id: "ai",
@@ -109,7 +109,7 @@ const serviceStack = [
         description:
             "We make your software smart. From RAG (Retrieval Augmented Generation) for document analysis to autonomous agents that handle support.",
         tags: ["OpenAI", "Python", "Vercel AI SDK", "Vector DB"],
-        color: "from-gold-500/20 to-orange-500/20",
+        color: "from-emerald-500/10 to-teal-500/10",
     },
 ];
 
@@ -117,7 +117,7 @@ function ServiceStackSection() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section ref={containerRef} className="bg-navy-900 py-24 md:py-32">
+        <section ref={containerRef} className="bg-zinc-50 py-24 md:py-32">
             <div className="section-container">
                 <motion.div
                     className="text-center mb-16"
@@ -126,10 +126,10 @@ function ServiceStackSection() {
                     viewport={{ once: true }}
                     variants={fadeInUp}
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
                         Our Engineering Stack
                     </h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-zinc-600 text-lg max-w-2xl mx-auto">
                         Three specialized domains. One unified approach to excellence.
                     </p>
                 </motion.div>
@@ -145,26 +145,26 @@ function ServiceStackSection() {
                             variants={fadeInUp}
                         >
                             <div
-                                className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br ${service.color} border border-navy-700 overflow-hidden`}
+                                className={`relative p-8 md:p-12 rounded-3xl bg-gradient-to-br bg-white shadow-sm border border-zinc-200 overflow-hidden`}
                             >
                                 {/* Background glow */}
-                                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-500/5 to-transparent" />
+                                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-40`} />
 
                                 <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                                     {/* Content */}
                                     <div>
-                                        <div className="w-14 h-14 rounded-xl bg-navy-800 flex items-center justify-center mb-6">
+                                        <div className="w-14 h-14 rounded-xl bg-zinc-100 flex items-center justify-center mb-6">
                                             <service.icon
-                                                className="w-7 h-7 text-gold-500"
+                                                className="w-7 h-7 text-teal-600"
                                                 strokeWidth={1.5}
                                             />
                                         </div>
 
-                                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4">
                                             {service.title}
                                         </h3>
 
-                                        <p className="text-slate-400 text-lg leading-relaxed mb-6">
+                                        <p className="text-zinc-600 text-lg leading-relaxed mb-6">
                                             {service.description}
                                         </p>
 
@@ -172,7 +172,7 @@ function ServiceStackSection() {
                                             {service.tags.map((tag) => (
                                                 <span
                                                     key={tag}
-                                                    className="px-3 py-1 bg-navy-800 text-gold-500 text-sm font-medium rounded-full"
+                                                    className="px-3 py-1 bg-white border border-teal-100 shadow-sm text-teal-700 text-sm font-medium rounded-full"
                                                 >
                                                     {tag}
                                                 </span>
@@ -184,7 +184,7 @@ function ServiceStackSection() {
                                     <div className="hidden md:flex items-center justify-center">
                                         <div className="relative w-64 h-64">
                                             <motion.div
-                                                className="absolute inset-0 rounded-2xl bg-navy-800/50 border border-navy-600"
+                                                className="absolute inset-0 rounded-2xl bg-zinc-50 border border-zinc-200"
                                                 animate={{ rotate: [0, 5, 0, -5, 0] }}
                                                 transition={{
                                                     duration: 6,
@@ -192,9 +192,9 @@ function ServiceStackSection() {
                                                     ease: "easeInOut",
                                                 }}
                                             />
-                                            <div className="absolute inset-4 rounded-xl bg-navy-700/50 flex items-center justify-center">
+                                            <div className="absolute inset-4 rounded-xl bg-white flex items-center justify-center shadow-sm">
                                                 <service.icon
-                                                    className="w-20 h-20 text-gold-500/30"
+                                                    className="w-20 h-20 text-teal-600/30"
                                                     strokeWidth={0.5}
                                                 />
                                             </div>
@@ -241,7 +241,7 @@ function ProcessSection() {
     const { scrollXProgress } = useScroll({ container: scrollRef });
 
     return (
-        <section className="py-24 md:py-32 bg-navy-950 overflow-hidden">
+        <section className="py-24 md:py-32 bg-white overflow-hidden">
             <div className="section-container">
                 <motion.div
                     className="text-center mb-12"
@@ -250,10 +250,10 @@ function ProcessSection() {
                     viewport={{ once: true }}
                     variants={fadeInUp}
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
                         How We Ship
                     </h2>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-zinc-600 text-lg">
                         A battle-tested process from concept to production.
                     </p>
                 </motion.div>
@@ -272,32 +272,32 @@ function ProcessSection() {
                             viewport={{ once: true }}
                             variants={fadeInUp}
                         >
-                            <div className="relative p-6 md:p-8 bg-navy-900 rounded-2xl border border-navy-700 h-full">
+                            <div className="relative p-6 md:p-8 bg-zinc-50 rounded-2xl border border-zinc-200 h-full">
                                 {/* Step Number */}
-                                <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gold-500 text-navy-950 font-bold flex items-center justify-center">
+                                <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-teal-600 text-white font-bold flex items-center justify-center shadow-md">
                                     {index + 1}
                                 </div>
 
                                 {/* Arrow connector (desktop) */}
                                 {index < processSteps.length - 1 && (
                                     <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                                        <ArrowRight className="w-6 h-6 text-gold-500" />
+                                        <ArrowRight className="w-6 h-6 text-teal-600" />
                                     </div>
                                 )}
 
                                 <div className="pt-4">
-                                    <div className="w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center mb-4">
+                                    <div className="w-12 h-12 rounded-xl bg-white border border-zinc-200 flex items-center justify-center mb-4 shadow-sm">
                                         <step.icon
-                                            className="w-6 h-6 text-gold-500"
+                                            className="w-6 h-6 text-teal-600"
                                             strokeWidth={1.5}
                                         />
                                     </div>
 
-                                    <h3 className="text-xl font-semibold text-white mb-2">
+                                    <h3 className="text-xl font-semibold text-zinc-900 mb-2">
                                         {step.title}
                                     </h3>
 
-                                    <p className="text-slate-400">{step.description}</p>
+                                    <p className="text-zinc-600">{step.description}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -328,12 +328,12 @@ const techLogos = [
 
 function TechMarquee() {
     return (
-        <section className="py-16 bg-navy-900 border-y border-navy-700 overflow-hidden">
+        <section className="py-16 bg-zinc-50 border-y border-zinc-200 overflow-hidden">
             <div className="section-container mb-8">
-                <h3 className="text-center text-xl font-semibold text-white mb-2">
+                <h3 className="text-center text-xl font-semibold text-zinc-900 mb-2">
                     Our Weaponry
                 </h3>
-                <p className="text-center text-slate-400">
+                <p className="text-center text-zinc-600">
                     Modern tools for modern problems
                 </p>
             </div>
@@ -347,7 +347,7 @@ function TechMarquee() {
                     {[...techLogos, ...techLogos].map((logo, index) => (
                         <div
                             key={`${logo}-${index}`}
-                            className="flex items-center gap-3 text-slate-500 hover:text-gold-500 transition-colors duration-300 cursor-default"
+                            className="flex items-center gap-3 text-zinc-400 hover:text-teal-600 transition-colors duration-300 cursor-default"
                         >
                             <span className="text-lg font-medium">{logo}</span>
                         </div>
@@ -364,7 +364,7 @@ function TechMarquee() {
 function CTASection() {
     return (
         <motion.section
-            className="py-24 md:py-32 bg-navy-950"
+            className="py-24 md:py-32 bg-white"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -372,7 +372,7 @@ function CTASection() {
         >
             <div className="section-container text-center">
                 <motion.h2
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 mb-6"
                     variants={fadeInUp}
                 >
                     Ready to engineer your vision?
@@ -381,7 +381,7 @@ function CTASection() {
                 <motion.div variants={fadeInUp}>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-navy-950 font-bold text-lg rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30 hover:-translate-y-0.5"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5"
                     >
                         Book Technical Roadmap Call
                         <ArrowRight className="w-5 h-5" />

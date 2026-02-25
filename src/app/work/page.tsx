@@ -31,21 +31,21 @@ const staggerContainer = {
 function HeroSection() {
     return (
         <motion.section
-            className="py-24 md:py-32 bg-navy-950"
+            className="py-24 md:py-32 bg-white"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
         >
             <div className="section-container text-center">
                 <motion.h1
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 mb-6"
                     variants={fadeInUp}
                 >
-                    Selected <span className="text-gold-gradient">Works.</span>
+                    Selected <span className="text-teal-600">Works.</span>
                 </motion.h1>
 
                 <motion.p
-                    className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto"
+                    className="text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto"
                     variants={fadeInUp}
                 >
                     A curation of recent engineering challenges and production releases.
@@ -99,7 +99,7 @@ const projects = [
 
 function ProjectsSection() {
     return (
-        <section className="bg-navy-900 py-12 md:py-20">
+        <section className="bg-zinc-50 py-12 md:py-20">
             <div className="section-container">
                 <div className="space-y-16 md:space-y-24">
                     {projects.map((project, index) => (
@@ -112,45 +112,45 @@ function ProjectsSection() {
                             variants={staggerContainer}
                         >
                             <div
-                                className={`relative rounded-3xl bg-gradient-to-br ${project.gradient} border border-navy-700 overflow-hidden`}
+                                className={`relative rounded-3xl bg-white shadow-sm border border-zinc-200 overflow-hidden`}
                             >
                                 <div className="p-8 md:p-12 lg:p-16">
                                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                                         {/* Content */}
                                         <motion.div variants={fadeInUp}>
                                             {/* Category Badge */}
-                                            <div className="inline-block px-3 py-1 bg-navy-800 text-gold-500 text-sm font-medium rounded-full mb-6">
+                                            <div className="inline-block px-3 py-1 bg-teal-50 text-teal-600 text-sm font-medium rounded-full mb-6">
                                                 {project.category}
                                             </div>
 
                                             {/* Project Name */}
-                                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
+                                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 mb-4 tracking-tight">
                                                 {project.name}
                                             </h2>
 
-                                            <p className="text-xl text-slate-300 mb-4">
+                                            <p className="text-xl text-zinc-700 mb-4">
                                                 {project.description}
                                             </p>
 
-                                            <p className="text-slate-400 leading-relaxed mb-8">
+                                            <p className="text-zinc-600 leading-relaxed mb-8">
                                                 {project.longDescription}
                                             </p>
 
                                             {/* Details Grid */}
                                             <div className="grid sm:grid-cols-2 gap-6 mb-8">
                                                 <div>
-                                                    <p className="text-slate-500 text-sm uppercase tracking-wider mb-1">
+                                                    <p className="text-zinc-500 text-sm uppercase tracking-wider mb-1">
                                                         Role
                                                     </p>
-                                                    <p className="text-white font-medium">
+                                                    <p className="text-zinc-900 font-medium">
                                                         {project.role}
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-slate-500 text-sm uppercase tracking-wider mb-1">
+                                                    <p className="text-zinc-500 text-sm uppercase tracking-wider mb-1">
                                                         Outcome
                                                     </p>
-                                                    <p className="text-gold-500 font-medium">
+                                                    <p className="text-teal-600 font-medium">
                                                         {project.outcome}
                                                     </p>
                                                 </div>
@@ -161,7 +161,7 @@ function ProjectsSection() {
                                                 {project.stack.map((tech) => (
                                                     <span
                                                         key={tech}
-                                                        className="px-3 py-1 bg-navy-800 text-slate-300 text-sm rounded-full"
+                                                        className="px-3 py-1 bg-zinc-100 text-zinc-600 text-sm rounded-full"
                                                     >
                                                         {tech}
                                                     </span>
@@ -169,24 +169,24 @@ function ProjectsSection() {
                                             </div>
 
                                             {/* CTA */}
-                                            <button className="inline-flex items-center gap-2 text-gold-500 font-semibold hover:gap-3 transition-all duration-200">
+                                            <Link href={`/work/${project.id}`} className="inline-flex items-center gap-2 text-teal-600 font-semibold hover:gap-3 transition-all duration-200">
                                                 View Case Study
                                                 <ArrowRight className="w-5 h-5" />
-                                            </button>
+                                            </Link>
                                         </motion.div>
 
                                         {/* Visual Placeholder */}
                                         <motion.div
-                                            className="relative aspect-[4/3] rounded-2xl bg-navy-800/50 border border-navy-600 overflow-hidden flex items-center justify-center"
+                                            className="relative aspect-[4/3] rounded-2xl bg-zinc-100 border border-zinc-200 overflow-hidden flex items-center justify-center"
                                             variants={fadeInUp}
                                         >
                                             <div className="text-center p-8">
-                                                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-navy-700/50 flex items-center justify-center">
-                                                    <span className="text-4xl font-bold text-gold-500/30">
+                                                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center shadow-sm">
+                                                    <span className="text-4xl font-bold text-zinc-300">
                                                         {project.name[0]}
                                                     </span>
                                                 </div>
-                                                <p className="text-slate-500 text-sm">
+                                                <p className="text-zinc-500 text-sm">
                                                     Project Screenshot
                                                 </p>
                                             </div>
@@ -229,7 +229,7 @@ const labProjects = [
 function LabSection() {
     return (
         <motion.section
-            className="py-24 md:py-32 bg-navy-950"
+            className="py-24 md:py-32 bg-white"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -237,10 +237,10 @@ function LabSection() {
         >
             <div className="section-container">
                 <motion.div className="text-center mb-12" variants={fadeInUp}>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
                         The Lab.
                     </h2>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-zinc-600 text-lg">
                         Internal experiments and open source contributions.
                     </p>
                 </motion.div>
@@ -250,27 +250,27 @@ function LabSection() {
                         <motion.a
                             key={project.title}
                             href={project.link}
-                            className="group p-6 bg-navy-900 rounded-2xl border border-navy-700 hover:border-gold-500/50 transition-all duration-300"
+                            className="group p-6 bg-zinc-50 rounded-2xl border border-zinc-200 hover:border-teal-200 transition-all duration-300"
                             variants={fadeInUp}
                         >
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-10 h-10 rounded-lg bg-navy-800 flex items-center justify-center group-hover:bg-gold-500/10 transition-colors">
+                                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center border border-zinc-200 group-hover:bg-teal-50 transition-colors">
                                     {project.type === "github" ? (
-                                        <Github className="w-5 h-5 text-gold-500" />
+                                        <Github className="w-5 h-5 text-teal-600" />
                                     ) : (
-                                        <ExternalLink className="w-5 h-5 text-gold-500" />
+                                        <ExternalLink className="w-5 h-5 text-teal-600" />
                                     )}
                                 </div>
-                                <span className="text-xs text-slate-500 uppercase tracking-wider">
+                                <span className="text-xs text-zinc-500 uppercase tracking-wider">
                                     {project.type}
                                 </span>
                             </div>
 
-                            <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gold-500 transition-colors">
+                            <h3 className="text-lg font-semibold text-zinc-900 mb-2 group-hover:text-teal-700 transition-colors">
                                 {project.title}
                             </h3>
 
-                            <p className="text-slate-400 text-sm">{project.description}</p>
+                            <p className="text-zinc-600 text-sm">{project.description}</p>
                         </motion.a>
                     ))}
                 </div>
@@ -285,7 +285,7 @@ function LabSection() {
 function CTASection() {
     return (
         <motion.section
-            className="py-24 md:py-32 bg-navy-900 border-t border-navy-700"
+            className="py-24 md:py-32 bg-zinc-50 border-t border-zinc-100"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -293,14 +293,14 @@ function CTASection() {
         >
             <div className="section-container text-center">
                 <motion.h2
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 mb-6"
                     variants={fadeInUp}
                 >
                     Your project could be next.
                 </motion.h2>
 
                 <motion.p
-                    className="text-slate-400 text-lg max-w-xl mx-auto mb-10"
+                    className="text-zinc-600 text-lg max-w-xl mx-auto mb-10"
                     variants={fadeInUp}
                 >
                     Let&apos;s discuss how we can turn your vision into a production-ready
@@ -310,7 +310,7 @@ function CTASection() {
                 <motion.div variants={fadeInUp}>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-navy-950 font-bold text-lg rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-gold-500/30 hover:-translate-y-0.5"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5"
                     >
                         Start a Project
                         <ArrowRight className="w-5 h-5" />
