@@ -54,10 +54,9 @@ export default function Header() {
                             <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.2 }}
-                                className="origin-pulse"
                             >
                                 <Image
-                                    src="/logo/one_origin_logo_bg.png"
+                                    src="/logo/o2tech-logo.svg"
                                     alt="One Origin Tech Logo"
                                     width={40}
                                     height={40}

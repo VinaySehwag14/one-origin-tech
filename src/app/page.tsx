@@ -112,10 +112,11 @@ function HeroSection() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-lg rounded-lg shadow-md transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white font-bold text-lg rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(20,184,166,0.3)]"
           >
-            Start The Conversation
-            <ArrowRight className="w-5 h-5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <span className="relative z-10">Start The Conversation</span>
+            <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
 
           <Link
@@ -187,7 +188,7 @@ function ManifestoSection() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.9", "end 0.4"]
+    offset: ["start 0.9", "end 0.7"]
   });
 
   // Flatten all words with their metadata
@@ -461,22 +462,28 @@ function ComparisonSection() {
 // ============================================
 const projects = [
   {
+    id: "vaanra",
     name: "VAANRA",
     category: "E-Commerce",
     description: "Global E-commerce Infrastructure",
     tags: ["Next.js", "Shopify Headless", "Stripe"],
+    gradient: "from-emerald-500/20 to-teal-500/5",
   },
   {
+    id: "saheeba",
     name: "SAHEEBA",
     category: "IoT / Mobile",
     description: "Real-time IoT & Community Platform",
     tags: ["React Native", "WebSocket", "Geolocation"],
+    gradient: "from-purple-500/20 to-pink-500/5",
   },
   {
+    id: "ai-workspace",
     name: "AI WORKSPACE",
     category: "SaaS",
     description: "Enterprise Document Intelligence",
     tags: ["Next.js 15", "OpenAI", "Vector DB"],
+    gradient: "from-amber-500/20 to-orange-500/5",
   },
 ];
 
@@ -508,42 +515,42 @@ function SelectedWorksSection() {
               custom={index}
               whileHover={{ y: -4, scale: 1.02 }}
             >
-              {/* Abstract Gradient Icon - Top Right */}
-              <div className="absolute top-4 right-4 w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-100/60 via-teal-50/40 to-transparent opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-              <div className="absolute top-8 right-8 w-12 h-12 rounded-xl bg-gradient-to-br from-zinc-100/80 to-zinc-50/40 opacity-40 group-hover:opacity-70 transition-all duration-300" />
+              <div className={`absolute top-0 right-0 w-64 h-64 rounded-full bg-gradient-to-br ${project.gradient} blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
 
-              {/* Category Badge */}
-              <div className="relative inline-block px-3 py-1 bg-teal-50 text-teal-600 text-xs font-medium rounded-full mb-4">
-                {project.category}
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Category Badge */}
+                <div className="inline-flex px-3 py-1 bg-zinc-100/80 backdrop-blur-sm text-zinc-900 border border-zinc-200/50 text-xs font-bold uppercase tracking-wider rounded-full mb-6 self-start group-hover:border-zinc-300 transition-colors">
+                  {project.category}
+                </div>
+
+                {/* Project Name */}
+                <h3 className="text-3xl font-black text-zinc-900 mb-3 tracking-tight group-hover:text-teal-700 transition-colors">
+                  {project.name}
+                </h3>
+
+                <p className="text-zinc-600 mb-8 flex-grow text-lg">{project.description}</p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-white border border-zinc-200 shadow-sm text-zinc-600 text-xs font-semibold rounded-md group-hover:border-zinc-300 transition-colors"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Link */}
+                <Link
+                  href={`/work/${project.id}`}
+                  className="inline-flex items-center gap-2 text-zinc-900 font-bold group-hover:text-teal-600 transition-colors"
+                >
+                  View Case Study
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
-
-              {/* Project Name */}
-              <h3 className="relative text-2xl font-bold text-zinc-900 mb-2 tracking-tight group-hover:text-teal-700 transition-colors">
-                {project.name}
-              </h3>
-
-              <p className="relative text-zinc-600 mb-6">{project.description}</p>
-
-              {/* Tags */}
-              <div className="relative flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 bg-zinc-100 text-zinc-600 text-xs rounded group-hover:bg-teal-50 group-hover:text-teal-700 transition-colors"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Link */}
-              <Link
-                href="/work"
-                className="relative inline-flex items-center gap-2 text-teal-600 font-medium group-hover:gap-3 transition-all duration-200"
-              >
-                View Case Study
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
             </motion.div>
           ))}
         </div>
