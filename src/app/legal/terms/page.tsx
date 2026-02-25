@@ -1,20 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
+import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
 
 export default function TermsOfServicePage() {
     return (
         <section className="py-24 md:py-32 bg-white min-h-screen">
             <div className="section-container max-w-4xl mx-auto">
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeInUp}
+                <AnimatedDiv
+                    animation="fadeInUp"
                     className="space-y-12"
                 >
                     <div className="border-b border-zinc-200 pb-8 mb-8">
@@ -101,7 +92,7 @@ export default function TermsOfServicePage() {
                             </div>
                         </section>
                     </div>
-                </motion.div>
+                </AnimatedDiv>
             </div>
         </section>
     );

@@ -1,18 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight, Box, Layers, Link as LinkIcon, Network, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
-
-const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
-};
-
-const staggerContainer = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-};
+import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
 
 const metrics = [
     { value: "99.99%", label: "Uptime SLA" },
@@ -35,27 +23,25 @@ export default function APISystemsPage() {
 
                 <div className="section-container relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <motion.div
-                            initial="hidden"
-                            animate="visible"
-                            variants={staggerContainer}
+                        <AnimatedDiv
+                            animation="stagger"
                             className="flex-1"
                         >
-                            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-teal-400 font-medium text-sm mb-8">
+                            <AnimatedDiv animation="fadeInUp" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 text-teal-400 font-medium text-sm mb-8">
                                 <Network className="w-4 h-4" />
                                 Backend Infrastructure
-                            </motion.div>
+                            </AnimatedDiv>
 
-                            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
-                                APIs that <br className="hidden md:block" />
+                            <AnimatedDiv animation="fadeInUp" className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+                                <h1 className="inline">APIs that <br className="hidden md:block" /></h1>
                                 <span className="text-teal-400">Power Ecosystems.</span>
-                            </motion.h1>
+                            </AnimatedDiv>
 
-                            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl leading-relaxed">
-                                RESTful, GraphQL, and gRPC backends designed for extreme scalability, strict security, and flawless developer experience.
-                            </motion.p>
+                            <AnimatedDiv animation="fadeInUp" className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl leading-relaxed">
+                                <p>RESTful, GraphQL, and gRPC backends designed for extreme scalability, strict security, and flawless developer experience.</p>
+                            </AnimatedDiv>
 
-                            <motion.div variants={fadeInUp}>
+                            <AnimatedDiv animation="fadeInUp">
                                 <Link
                                     href="/contact"
                                     className="inline-flex items-center gap-2 px-8 py-4 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:-translate-y-0.5"
@@ -63,13 +49,14 @@ export default function APISystemsPage() {
                                     Architect Your Backend
                                     <ArrowRight className="w-5 h-5" />
                                 </Link>
-                            </motion.div>
-                        </motion.div>
+                            </AnimatedDiv>
+                        </AnimatedDiv>
 
                         {/* Animated Code Block Visual */}
-                        <motion.div
+                        <AnimatedDiv
                             initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.3 }}
                             className="flex-1 w-full max-w-lg"
                         >
@@ -94,7 +81,7 @@ export default function APISystemsPage() {
                                     <p>{'}'}</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </AnimatedDiv>
                     </div>
                 </div>
             </section>
