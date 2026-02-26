@@ -88,7 +88,7 @@ function BookingSection() {
                     <div className="relative p-2 rounded-3xl bg-white shadow-sm border border-zinc-200">
                         <div className="bg-white rounded-2xl overflow-hidden">
                             <Cal
-                                calLink="vinay-sehwag-gjrsq4/technical-discovery-call"
+                                calLink="oneorigintech/30min"
                                 style={{ width: "100%", height: "100%", overflow: "scroll" }}
                                 config={{ layout: "month_view", theme: "light" }}
                             />
@@ -99,7 +99,7 @@ function BookingSection() {
                     <p className="text-center text-zinc-500 text-sm mt-4">
                         Having trouble?{" "}
                         <a
-                            href="https://cal.com/vinay-sehwag-gjrsq4/technical-discovery-call"
+                            href="https://cal.com/oneorigintech/30min?overlayCalendar=true"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-teal-600 hover:text-teal-700 underline"
