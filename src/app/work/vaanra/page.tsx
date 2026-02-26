@@ -17,23 +17,26 @@ const staggerContainer = {
 export default function VaanraCaseStudyPage() {
     return (
         <main className="min-h-screen bg-white">
-            {/* Top Navigation Bar */}
-            <div className="border-b border-zinc-100 bg-white/80 backdrop-blur-md sticky top-16 md:top-20 z-40">
-                <div className="section-container py-4 flex items-center justify-between">
-                    <Link href="/work" className="inline-flex items-center gap-2 text-zinc-500 hover:text-teal-600 font-medium transition-colors text-sm">
-                        <ArrowLeft className="w-4 h-4" />
-                        Back to Work
-                    </Link>
-                    <span className="text-zinc-400 text-sm font-medium">Case Study 01</span>
-                </div>
-            </div>
-
             {/* Hero Section */}
-            <section className="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden bg-zinc-50">
+            <section className="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden bg-zinc-50">
                 {/* Abstract Background Element */}
                 <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="section-container relative z-10">
+                    {/* Inline Navigation */}
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex items-center justify-between mb-16 md:mb-24"
+                    >
+                        <Link href="/work" className="inline-flex items-center gap-2 text-zinc-500 hover:text-emerald-600 font-medium transition-colors text-sm group">
+                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                            Back to Work
+                        </Link>
+                        <span className="text-zinc-400 text-xs font-bold tracking-widest uppercase">Case Study 01</span>
+                    </motion.div>
+
                     <motion.div
                         initial="hidden"
                         animate="visible"

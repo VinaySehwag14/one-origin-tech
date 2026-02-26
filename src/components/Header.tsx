@@ -93,7 +93,7 @@ export default function Header() {
                         <div className="flex items-center gap-3">
                             {/* Desktop CTA */}
                             <a
-                                href="https://cal.com/vinay-sehwag-gjrsq4/technical-discovery-call"
+                                href="https://cal.com/oneorigintech/30min?overlayCalendar=true"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hidden md:inline-flex items-center gap-3 pl-6 pr-2 py-2 bg-teal-600 text-white font-medium text-sm rounded-full shadow-md transition-all duration-500 ease-out group hover:bg-teal-700 hover:scale-[1.02] hover:shadow-xl"
@@ -181,7 +181,7 @@ export default function Header() {
                                 {/* Mobile CTA */}
                                 <div className="p-4 border-t border-zinc-200">
                                     <a
-                                        href="https://cal.com/vinay-sehwag-gjrsq4/technical-discovery-call"
+                                        href="https://cal.com/oneorigintech/30min?overlayCalendar=true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}

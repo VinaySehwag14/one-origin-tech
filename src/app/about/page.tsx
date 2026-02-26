@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Quote, Shield, Target, Sparkles } from "lucide-react";
 import { AnimatedSection, AnimatedDiv } from "@/components/ui/AnimatedWrappers";
-import { MapPulseNode } from "./MapPulseNode";
+import { WorldMapVisual } from "@/components/about/WorldMapVisual";
 
 // ============================================
 // SECTION 1: THE MANIFESTO (THE "WHY")
@@ -158,14 +158,10 @@ function GlobalStandardSection() {
 
                 {/* Map Container */}
                 <AnimatedDiv
-                    className="relative aspect-[2/1] max-w-4xl mx-auto bg-zinc-50 rounded-3xl border border-zinc-200 overflow-hidden mb-16 shadow-sm"
+                    className="relative w-full aspect-[2/1] md:aspect-[2.5/1] max-w-6xl mx-auto bg-zinc-950 rounded-3xl border border-zinc-800 overflow-hidden mb-16 shadow-2xl"
                     animation="fadeInUp"
                 >
-                    {/* Grid lines for map effect */}
-                    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(to right, #14b8a6 1px, transparent 1px), linear-gradient(to bottom, #14b8a6 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
-                    {/* HQ Location - New Delhi with Teal Pulse */}
-                    <MapPulseNode />
+                    <WorldMapVisual />
                 </AnimatedDiv>
 
                 {/* Stats Row */}
