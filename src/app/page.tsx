@@ -103,7 +103,7 @@ function ComparisonSection() {
           <div className="grid grid-cols-3 relative bg-white rounded-2xl border border-zinc-200 shadow-sm isolate">
 
             {/* Third Column Highlight Background (Spans all rows) */}
-            <div className="col-start-3 row-start-1 row-span-5 bg-white border-2 md:border-4 border-teal-600 rounded-r-2xl shadow-xl z-0 transform md:scale-[1.02] -ml-px md:-ml-2 pointer-events-none" />
+            <div className="col-start-3 row-start-1 row-span-5 bg-teal-50/40 border-2 md:border-4 border-teal-600 rounded-r-2xl shadow-xl z-0 pointer-events-none" />
 
             {/* HEADERS */}
             <div className="col-start-1 row-start-1 p-3 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100/80 rounded-tl-2xl border-b border-zinc-200 text-xs sm:text-sm md:text-lg flex items-center justify-center text-center">
@@ -112,7 +112,7 @@ function ComparisonSection() {
             <div className="col-start-2 row-start-1 p-3 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100/80 border-b border-l border-zinc-200 text-xs sm:text-sm md:text-lg flex items-center justify-center text-center">
               Industry Standard
             </div>
-            <div className="col-start-3 row-start-1 p-3 sm:p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl border-b border-teal-700 text-xs sm:text-sm md:text-lg flex items-center justify-center leading-tight z-10 shadow-sm">
+            <div className="col-start-3 row-start-1 p-3 sm:p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl border-b-[2px] md:border-b-[4px] border-teal-700 text-xs sm:text-sm md:text-lg flex items-center justify-center leading-tight z-10">
               One Origin Tech
             </div>
 
