@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -106,6 +107,17 @@ export default function RootLayout({
             gtag('config', 'G-9SXYZMQJ5N');
           `}
         </Script>
+
+        {/* Microsoft Clarity tracking */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vnah5fub7g");
+          `}
+        </Script>
       </head>
       <body
         className={`${inter.variable} antialiased font-sans bg-[var(--background)] text-[var(--foreground)]`}
@@ -114,6 +126,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
