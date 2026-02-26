@@ -23,7 +23,7 @@ const footerLinks = {
     ],
     social: [
         { label: "X / Twitter", icon: Twitter, href: "#" },
-        { label: "LinkedIn", icon: Linkedin, href: "#" },
+        { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/one-origin-tech/" },
     ]
 };
 
