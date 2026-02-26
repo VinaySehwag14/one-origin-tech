@@ -8,7 +8,7 @@ import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react";
 const footerLinks = {
     company: [
         { label: "About Us", href: "/about" },
-        { label: "Careers", href: "#" },
+        { label: "info@oneorigintech.com", href: "mailto:info@oneorigintech.com" },
         { label: "Contact", href: "/contact" },
     ],
     services: [
@@ -24,7 +24,6 @@ const footerLinks = {
     social: [
         { label: "X / Twitter", icon: Twitter, href: "#" },
         { label: "LinkedIn", icon: Linkedin, href: "#" },
-        { label: "GitHub", icon: Github, href: "#" },
     ]
 };
 
