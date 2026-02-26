@@ -1,4 +1,17 @@
 import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | One Origin Tech",
+    description: "Terms of Service and conditions for using One Origin Tech's website and services.",
+    alternates: {
+        canonical: "https://oneorigintech.com/legal/terms",
+    },
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function TermsOfServicePage() {
     return (

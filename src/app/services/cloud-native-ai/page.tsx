@@ -2,6 +2,20 @@ import { ArrowRight, Bot, BrainCircuit, Cpu, Database, Fingerprint, Lock, Sparkl
 import Link from "next/link";
 import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
 import { NeuralNetVisual } from "./NeuralNetVisual";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Cloud Native AI | Artificial Intelligence Engineering",
+    description: "Applied Artificial Intelligence. We architect scalable, production-grade AI architectures that deeply integrate into your business operations.",
+    alternates: {
+        canonical: "https://oneorigintech.com/services/cloud-native-ai",
+    },
+    openGraph: {
+        title: "Cloud Native AI | One Origin Tech",
+        description: "Applied Artificial Intelligence. Intelligence, Engineered for Scale.",
+        url: "https://oneorigintech.com/services/cloud-native-ai",
+    },
+};
 
 const capabilities = [
     { icon: BrainCircuit, title: "LLM Orchestration", description: "Multi-agent systems leveraging GPT-4, Claude, and specialized local models." },

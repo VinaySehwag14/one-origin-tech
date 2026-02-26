@@ -1,4 +1,17 @@
 import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | One Origin Tech",
+    description: "Privacy Policy and data handling practices for One Origin Tech.",
+    alternates: {
+        canonical: "https://oneorigintech.com/legal/privacy",
+    },
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function PrivacyPolicyPage() {
     return (

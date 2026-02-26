@@ -7,6 +7,20 @@ import { ServicesCards } from "@/components/home/ServicesCards";
 import { AnimatedCTAButton } from "@/components/home/AnimatedCTAButton";
 import { SelectedWorksCards } from "@/components/home/SelectedWorksCards";
 import { AnimatedSection, AnimatedDiv } from "@/components/ui/AnimatedWrappers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "One Origin Tech | Engineering Ideas to Life",
+  description: "One Origin is the digital product studio for founders who refuse to compromise on performance. Next.js, AI, and Mobile engineering at global standards.",
+  alternates: {
+    canonical: "https://oneorigintech.com",
+  },
+  openGraph: {
+    title: "One Origin Tech | Engineering Ideas to Life",
+    description: "The global Idea-to-Production studio. We bridge the gap between visionary concepts and scalable software.",
+    url: "https://oneorigintech.com",
+  },
+};
 
 // ============================================
 // SERVICES SECTION

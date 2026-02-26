@@ -2,6 +2,20 @@ import Link from "next/link";
 import { ArrowRight, Quote, Shield, Target, Sparkles } from "lucide-react";
 import { AnimatedSection, AnimatedDiv } from "@/components/ui/AnimatedWrappers";
 import { WorldMapVisual } from "@/components/about/WorldMapVisual";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About Us",
+    description: "Discover the core beliefs and global standards of One Origin Tech. We don't just build, we finish. Engineering at Silicon Valley standards.",
+    alternates: {
+        canonical: "https://oneorigintech.com/about",
+    },
+    openGraph: {
+        title: "About One Origin Tech",
+        description: "Discover the core beliefs and global standards of One Origin Tech. We don't just build, we finish.",
+        url: "https://oneorigintech.com/about",
+    },
+};
 
 // ============================================
 // SECTION 1: THE MANIFESTO (THE "WHY")

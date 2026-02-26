@@ -1,6 +1,20 @@
 import { ArrowRight, Box, Layers, Link as LinkIcon, Network, ShieldCheck, Zap } from "lucide-react";
 import Link from "next/link";
 import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "API Systems | Backend Infrastructure Engineering",
+    description: "RESTful, GraphQL, and gRPC backends designed for extreme scalability, strict security, and flawless developer experience.",
+    alternates: {
+        canonical: "https://oneorigintech.com/services/api-systems",
+    },
+    openGraph: {
+        title: "API Systems & Backend Infrastructure | One Origin Tech",
+        description: "APIs that Power Ecosystems. Designed for extreme scalability and strict security.",
+        url: "https://oneorigintech.com/services/api-systems",
+    },
+};
 
 const metrics = [
     { value: "99.99%", label: "Uptime SLA" },
