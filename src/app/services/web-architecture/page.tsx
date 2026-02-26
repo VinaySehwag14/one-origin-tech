@@ -2,6 +2,20 @@ import { ArrowRight, Globe, Zap, Shield, Code, Server, Smartphone } from "lucide
 import Link from "next/link";
 import { AnimatedDiv } from "@/components/ui/AnimatedWrappers";
 import { TechStackVisual } from "./TechStackVisual";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Web Architecture | Next-Gen Infrastructure",
+    description: "We design and build SEO-optimized, server-rendered applications that load instantly and scale infinitely.",
+    alternates: {
+        canonical: "https://oneorigintech.com/services/web-architecture",
+    },
+    openGraph: {
+        title: "Web Architecture | One Origin Tech",
+        description: "Web Architecture that Defies Limits. Next-Gen Infrastructure for the modern web.",
+        url: "https://oneorigintech.com/services/web-architecture",
+    },
+};
 
 const features = [
     { icon: Globe, title: "Global Scale", description: "Deploy to edge networks worldwide for sub-100ms latency anywhere." },
