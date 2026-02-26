@@ -103,11 +103,11 @@ function ComparisonSection() {
           <div className="grid grid-cols-3 relative">
             {/* Criteria Column */}
             <div className="bg-white rounded-l-2xl border border-zinc-200 border-r-0">
-              <div className="p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100 rounded-tl-2xl">Criteria</div>
+              <div className="p-2 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100 rounded-tl-2xl text-xs sm:text-sm md:text-base">Criteria</div>
               {comparisonData.map((row, index) => (
                 <div
                   key={row.criteria}
-                  className={`p-4 md:p-6 text-zinc-900 font-medium ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
+                  className={`p-2 sm:p-4 md:p-6 text-zinc-900 font-medium text-xs sm:text-sm md:text-base flex items-center h-full ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
                 >
                   {row.criteria}
                 </div>
@@ -116,29 +116,29 @@ function ComparisonSection() {
 
             {/* Industry Standard Column */}
             <div className="bg-white border-t border-b border-zinc-200">
-              <div className="p-4 md:p-6 text-zinc-600 font-medium text-center bg-zinc-100">Industry Standard</div>
+              <div className="p-2 sm:p-4 md:p-6 text-zinc-600 font-medium text-center bg-zinc-100 text-xs sm:text-sm md:text-base">Industry Standard</div>
               {comparisonData.map((row, index) => (
                 <div
                   key={row.criteria}
-                  className={`p-4 md:p-6 text-zinc-500 text-center flex items-center justify-center gap-2 ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
+                  className={`p-2 sm:p-4 md:p-6 text-zinc-500 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base h-full ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
                 >
-                  <X className="w-4 h-4 text-zinc-300" />
+                  <X className="w-3 h-3 md:w-4 md:h-4 text-zinc-300 shrink-0" />
                   <span>{row.industry}</span>
                 </div>
               ))}
             </div>
 
             {/* One Origin Column - HIGHLIGHTED */}
-            <div className="bg-white rounded-r-2xl border-4 border-teal-600 shadow-xl relative -ml-px z-10 transform scale-[1.02]">
-              <div className="p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl">
+            <div className="bg-white rounded-r-2xl border-2 md:border-4 border-teal-600 shadow-xl relative -ml-px z-10 transform md:scale-[1.02]">
+              <div className="p-2 sm:p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl text-xs sm:text-sm md:text-base leading-tight md:leading-normal">
                 One Origin Tech
               </div>
               {comparisonData.map((row, index) => (
                 <div
                   key={row.criteria}
-                  className={`p-4 md:p-6 text-zinc-900 text-center bg-teal-50/30 flex items-center justify-center gap-2 ${index !== comparisonData.length - 1 ? "border-b border-teal-100" : ""}`}
+                  className={`p-2 sm:p-4 md:p-6 text-zinc-900 text-center bg-teal-50/30 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base h-full ${index !== comparisonData.length - 1 ? "border-b border-teal-100" : ""}`}
                 >
-                  <Check className="w-4 h-4 text-teal-600" />
+                  <Check className="w-3 h-3 md:w-4 md:h-4 text-teal-600 shrink-0" />
                   <span className="font-medium">{row.oneOrigin}</span>
                 </div>
               ))}
