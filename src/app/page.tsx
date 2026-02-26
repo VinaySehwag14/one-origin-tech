@@ -97,52 +97,62 @@ function ComparisonSection() {
         </AnimatedDiv>
 
         <AnimatedDiv
-          className="max-w-4xl mx-auto overflow-visible"
+          className="max-w-4xl mx-auto overflow-visible px-2 sm:px-4"
           animation="fadeInUp"
         >
-          <div className="grid grid-cols-3 relative">
-            {/* Criteria Column */}
-            <div className="bg-white rounded-l-2xl border border-zinc-200 border-r-0">
-              <div className="p-2 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100 rounded-tl-2xl text-xs sm:text-sm md:text-base">Criteria</div>
-              {comparisonData.map((row, index) => (
-                <div
-                  key={row.criteria}
-                  className={`p-2 sm:p-4 md:p-6 text-zinc-900 font-medium text-xs sm:text-sm md:text-base flex items-center h-full ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
-                >
-                  {row.criteria}
-                </div>
-              ))}
+          <div className="grid grid-cols-3 relative bg-white rounded-2xl border border-zinc-200 shadow-sm isolate">
+
+            {/* Third Column Highlight Background (Spans all rows) */}
+            <div className="col-start-3 row-start-1 row-span-5 bg-teal-50/40 border-2 md:border-4 border-teal-600 rounded-r-2xl shadow-xl z-0 pointer-events-none" />
+
+            {/* HEADERS */}
+            <div className="col-start-1 row-start-1 p-3 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100/80 rounded-tl-2xl border-b border-zinc-200 text-xs sm:text-sm md:text-lg flex items-center justify-center text-center">
+              Criteria
+            </div>
+            <div className="col-start-2 row-start-1 p-3 sm:p-4 md:p-6 text-zinc-600 font-medium bg-zinc-100/80 border-b border-l border-zinc-200 text-xs sm:text-sm md:text-lg flex items-center justify-center text-center">
+              Industry Standard
+            </div>
+            <div className="col-start-3 row-start-1 p-3 sm:p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl border-b-[2px] md:border-b-[4px] border-teal-700 text-xs sm:text-sm md:text-lg flex items-center justify-center leading-tight z-10">
+              One Origin Tech
             </div>
 
-            {/* Industry Standard Column */}
-            <div className="bg-white border-t border-b border-zinc-200">
-              <div className="p-2 sm:p-4 md:p-6 text-zinc-600 font-medium text-center bg-zinc-100 text-xs sm:text-sm md:text-base">Industry Standard</div>
-              {comparisonData.map((row, index) => (
-                <div
-                  key={row.criteria}
-                  className={`p-2 sm:p-4 md:p-6 text-zinc-500 text-center flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base h-full ${index !== comparisonData.length - 1 ? "border-b border-zinc-200" : ""}`}
-                >
-                  <X className="w-3 h-3 md:w-4 md:h-4 text-zinc-300 shrink-0" />
-                  <span>{row.industry}</span>
-                </div>
-              ))}
-            </div>
+            {/* ROWS */}
+            {comparisonData.map((row, index) => {
+              const isLast = index === comparisonData.length - 1;
+              const borderBottom = !isLast ? "border-b border-zinc-200" : "";
+              const borderBottomTeal = !isLast ? "border-b border-teal-100" : "";
+              const rowNum = index + 2; // offset by 1 for header
 
-            {/* One Origin Column - HIGHLIGHTED */}
-            <div className="bg-white rounded-r-2xl border-2 md:border-4 border-teal-600 shadow-xl relative -ml-px z-10 transform md:scale-[1.02]">
-              <div className="p-2 sm:p-4 md:p-6 font-bold text-center bg-teal-600 text-white rounded-tr-xl text-xs sm:text-sm md:text-base leading-tight md:leading-normal">
-                One Origin Tech
-              </div>
-              {comparisonData.map((row, index) => (
-                <div
-                  key={row.criteria}
-                  className={`p-2 sm:p-4 md:p-6 text-zinc-900 text-center bg-teal-50/30 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base h-full ${index !== comparisonData.length - 1 ? "border-b border-teal-100" : ""}`}
-                >
-                  <Check className="w-3 h-3 md:w-4 md:h-4 text-teal-600 shrink-0" />
-                  <span className="font-medium">{row.oneOrigin}</span>
+              return (
+                <div className="contents" key={row.criteria}>
+                  {/* Column 1 */}
+                  <div
+                    className={`p-3 sm:p-4 md:p-6 text-zinc-900 font-medium text-xs sm:text-sm md:text-base flex items-center ${borderBottom}`}
+                    style={{ gridColumnStart: 1, gridRowStart: rowNum }}
+                  >
+                    {row.criteria}
+                  </div>
+
+                  {/* Column 2 */}
+                  <div
+                    className={`p-3 sm:p-4 md:p-6 text-zinc-500 border-l border-zinc-200 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-center ${borderBottom}`}
+                    style={{ gridColumnStart: 2, gridRowStart: rowNum }}
+                  >
+                    <X className="w-3 h-3 md:w-4 md:h-4 text-zinc-300 shrink-0" />
+                    <span>{row.industry}</span>
+                  </div>
+
+                  {/* Column 3 (Highlighted) */}
+                  <div
+                    className={`p-3 sm:p-4 md:p-6 text-zinc-900 bg-teal-50/40 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-xs sm:text-sm md:text-base text-center z-10 ${borderBottomTeal} ${isLast ? 'rounded-br-2xl' : ''}`}
+                    style={{ gridColumnStart: 3, gridRowStart: rowNum }}
+                  >
+                    <Check className="w-3 h-3 md:w-4 md:h-4 text-teal-600 shrink-0" />
+                    <span className="font-semibold text-teal-950">{row.oneOrigin}</span>
+                  </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </AnimatedDiv>
       </div>
